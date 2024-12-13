@@ -17,37 +17,20 @@ header {
 
 main {
     padding: 2rem;
-    text-align: center;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.content {
+    height: 150vh; /* Add content that exceeds the viewport height */
+    background: linear-gradient(to bottom, #f4f4f4, #ddd);
+    padding: 1rem;
 }
-
-button:hover {
-    background-color: #45a049;
-}
-
-img {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin: 10px 0;
-    max-width: 100%;
-    height: auto;
-}
-
 
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
