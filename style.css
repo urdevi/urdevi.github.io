@@ -23,12 +23,9 @@ main {
 }
 
 .content {
-    text-align: center; /* Align text in the center of the content box */
+    height: 150vh; /* Add content that exceeds the viewport height */
+    background: linear-gradient(to bottom, #f4f4f4, #ddd);
     padding: 1rem;
-    background: linear-gradient(to right, #4CAF50, #45a049);
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 button {
     background-color: #4CAF50;
