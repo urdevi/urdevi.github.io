@@ -3,8 +3,12 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scrolling in both directions */
-    white-space: wrap; /* Prevent content from wrapping */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    overflow: auto;         /* Allow scrolling if needed */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 header {
@@ -19,9 +23,12 @@ main {
 }
 
 .content {
-    height: 150vh; /* Add content that exceeds the viewport height */
-    background: linear-gradient(to bottom, #f4f4f4, #ddd);
+    text-align: center; /* Align text in the center of the content box */
     padding: 1rem;
+    background: linear-gradient(to right, #4CAF50, #45a049);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 button {
     background-color: #4CAF50;
