@@ -19,15 +19,10 @@ main {
 }
 
 .content {
-    width: 200%; /* Make content wider than the viewport */
-    height: 200%; /* Make content taller than the viewport */
-    background: linear-gradient(to bottom right, #f4f4f4, #ddd, #333);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    height: 150vh; /* Add content that exceeds the viewport height */
+    background: linear-gradient(to bottom, #f4f4f4, #ddd);
+    padding: 1rem;
 }
-
 button {
     background-color: #4CAF50;
     color: white;
