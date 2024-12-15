@@ -3,59 +3,34 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Allow scrolling in both directions */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling if not needed */
     font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-
-.container {
-    width: 200%; /* Content width is larger than the viewport to allow horizontal scrolling */
-    height: 200%; /* Content height is larger than the viewport to allow vertical scrolling */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom right, #f4f4f4, #ddd, #999);
-    padding: 20px;
-    resize: both; /* Allow resizing for interactive testing in some browsers */
-    overflow: auto; /* Add scrollbars if content overflows */
 }
 
 header {
-    width: 80%; /* Responsive width */
-    text-align: center;
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 main {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: white;
-    width: 80%; /* Responsive width */
-    height: 100%;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    padding: 2rem;
 }
 
 .content {
-    font-size: calc(1rem + 0.5vw); /* Text scales dynamically with viewport size */
-    width: 100%; /* Content fills the container width */
+    height: 150vh; /* Add content that exceeds the viewport height */
+    background: linear-gradient(to bottom, #f4f4f4, #ddd);
+    padding: 1rem;
 }
 
 footer {
-    width: 80%; /* Responsive width */
-    text-align: center;
     background-color: #333;
     color: white;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 8px;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
