@@ -12,31 +12,78 @@
     </header>
     <main>
         <section>
-            <p1>This page was created to present the Sandboxed Netwrok which was required for the Networking and Security Practices.</p1>
+            <p>This page was created to present the Sandboxed Netwrok which was required for the Networking and Security Practices.</p>
         </section>
         <section>    
-            <p2>Based on the requirements which have been provided there was supposed to be three VM's.</p2>
+            <p>Based on the requirements which have been provided there was supposed to be three VM's.</p>
         </section>
         <section>    
-            <p3>The VM's that had to be deployed was Ubuntu Desktop 22.04, Ubuntu Server 22.04 which should act as a Gateway
-            and provide Internet Access, and lastly Bitnami application server in which case i choosed OpenCart.</p3>
+            <p>The VM's that had to be deployed was Ubuntu Desktop 22.04, Ubuntu Server 22.04 which should act as a Gateway
+                and provide Internet Access, and lastly Bitnami application server in which case i choosed OpenCart.</p>
         </section>
          <section>
-            <h2>Network Segmentation Diagram:</h2>
-             <img src="Images/Network Diagram.jpg" alt="A beautiful example image" width="750" />
-            <p>One the left there is the Ubuntu Desktop Machine. One the i have the Bitnami OpenCart Server. On the middle is the Gateway Router and above is presented the Internet Acces.</p>
+            <h1>Network Segmentation Diagram:</h1>
+             <img src="Images/Network Diagram.jpg" alt="Network diagram" width="750" />
+            <p>One the left there is the Ubuntu Desktop Machine. One the i have the Bitnami OpenCart Server. On the middle is the Gateway Router and above is presented the Internet Access.</p>
          </section>
         <section>
-            <h2>IP Table:</h2>
-             <img src="Images/IP Table.jpeg" alt="A beautiful example image" width="750" />
+            <h1>IP Table:</h1>
+             <img src="Images/IP Table.jpeg" alt="IP table" width="750" />
             <p>On the picture above you can see the IP Addresses that have been assigned to each machine.</p>
         </section>
         <section>
             <h3>GateWay Setup:</h3>
-             <img src="Images/Gateway 2.jpeg.png" alt="A beautiful example image" width="750" />
-            <p>On the picture above you can see how you can find the Netplan for the GateWay. From there you will be able to set the static IP addresses.</p>
+             <img src="Images/Gateway 1.jpeg" alt="Gateway" width="750" />
+            <p>On the picture above you can see how you can see how the Gateway looks like when you Log In and the names of the network cards which are Enabled. Take a note of the names as they will be needed when setting up the Netplan.</p>
         </section>
-        
+        <section>
+             <img src="Images/Gateway 2.jpeg" alt="Gateway" width="750" />
+            <p>To find the Netplan which Ubuntu Servers are using you have to type the following command "ls /etc/netplan/".
+            That will display the name of the Neplan which will be needed in the next step.</p>
+        </section>
+        <section>
+             <img src="Images/Gateway 3.jpeg" alt="Gateway" width="750" />
+            <p>Now to access the Netplan we have to type the following command "sudo nano /etc/netplan/-followed by the name of your Netplan-" and hit Enter. That will open the Netplan configuration file and you will be able to set the static IP addresses according to your needs.</p>
+        </section>
+	<section>
+             <img src="Images/Gateway 4.jpeg" alt="Gateway" width="750" />
+            <p>Once the Netplan is open you should see a screen like that. Now the next step is to set the IP's. To do that with the arrows of the keyboard we navigate to the addresses that we want to change.</p>
+        </section>
+	<section>
+            <p>Once you made your changes to save the Netplan you have to press and hold "Ctrl" + "X" button on your keyboard. That will prompt a message to save the changes. To do that press and hold the "Shift" + "Y" on the keyboard.</p>
+        </section>
+
+	<section>
+             <img src="Images/Gateway 5.jpeg" alt="Gateway" width="750" />
+            <p>Once the Neplan is saved you will then be returned to the home screen of the server. To fully commit the changes on the Netplan type the following "sudo netplan apply"</p>
+        </section>
+	<section>
+            <p>That will commit the changes to the Netplan without rebooting the machine. The other way to commit the changes is to reboot the machine by typing "sudo reboot now".</p>
+        </section>
+	<section>
+             <img src="Images/Gateway 9.jpeg" alt="Gateway" width="750" />
+            <p>Next step is to Enable the IP forwarding. To do that type the following command "sudo nano /etc/sysctl.conf". That will bring you to the following setting where you will have to uncomment the following line "net.ipv4.ip_forward=1". Then exit and save the changes.</p>
+        </section>
+	<section>
+            <p>To apply the changes to the configuration file type "sudo sysctl -p".</p>
+        </section>
+	<section>
+             <img src="Images/Gateway 7.jpeg" alt="Gateway" width="750" />
+            <p>Once all of that is done then you can check if you can ping the Google IP by typing "ping 8.8.8.8". If everything has been set properly you should be able to ping the Google address and you should see results as shown on the picture above.</p>
+        </section>
+	<section>
+             <img src="Images/Gateway 10.jpeg" alt="Gateway" width="750" />
+            <p>The next step it will be to allow the other machines which will be connected on the subnets to b able to access the internet. To do so type the following command "sudo iptables -A FORWARD -i enp0s3 -o enp0s8". Replace the names of the network cards with your one as they may be different and repeat the step for all of them respectfully.</p>
+        </section>
+	<section>
+            <p>To save the IP tables type the following commands as shown: "sudo apt install iptables-persistent"; "sudo netfilter-persistent save"; "sudo netfilter-persistent reload".</p>
+        </section>
+
+	<section>
+             <img src="Images/Gateway 11.jpeg" alt="Gateway" width="750" />
+            <p>Once the tables are saved type the following to review them "sudo iptables -L -v -n". That command will display all IP tables and rules which have been set</p>
+        </section>
+
     </main>
     <footer>
         <p>Created by <a href="https://github.com/urdevi/urdevi.github.io" target="_blank">Ivan Urdev</a>.</p>
@@ -44,4 +91,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
