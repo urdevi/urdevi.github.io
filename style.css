@@ -6,11 +6,11 @@ html, body {
     overflow-y: auto; /* Enable vertical scrolling */
     overflow-x: auto; /* Disable horizontal scrolling if not needed */
     font-family: Arial, sans-serif;
-    background-color: #81F781;
+    background-color: #F1F1F2;
 }
 
 header {
-    background-color: #81BEF7;
+    background-color: #A1D6E2;
     color: black;
     text-align: center;
     padding: 1rem 0;
@@ -27,7 +27,7 @@ main {
 }
 
 footer {
-    background-color: #A9E2F3;
+    background-color: #1995AD;
     color: black;
     text-align: center;
     padding: 1rem 0;
