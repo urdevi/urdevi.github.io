@@ -8,18 +8,18 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to My GitHub Page</h1>
+        <h1>Welcome to My GitHub Page of how to set and deploy a Sandboxed Network</h1>
     </header>
     <main>
         <section>
-            <p>This page was created to present the Sandboxed Netwrok which was required for the Networking and Security Practices.</p>
+            <p>This page was created to present the Sandboxed Network which was required for the Networking and Security Practices.</p>
         </section>
         <section>    
             <p>Based on the requirements which have been provided there was supposed to be three VM's.</p>
         </section>
         <section>    
             <p>The VM's that had to be deployed was Ubuntu Desktop 22.04, Ubuntu Server 22.04 which should act as a Gateway
-                and provide Internet Access, and lastly Bitnami application server in which case i choosed OpenCart.</p>
+                and provide Internet Access, and lastly Bitnami application server in which case i choose OpenCart.</p>
         </section>
          <section>
             <h1>Network Segmentation Diagram:</h1>
@@ -32,7 +32,7 @@
             <p>On the picture above you can see the IP Addresses that have been assigned to each machine.</p>
         </section>
         <section>
-            <h3>GateWay Setup:</h3>
+            <h2>GateWay Setup:</h2>
              <img src="Images/Gateway 1.jpeg" alt="Gateway" width="750" />
             <p>On the picture above you can see how you can see how the Gateway looks like when you Log In and the names of the network cards which are Enabled. Take a note of the names as they will be needed when setting up the Netplan.</p>
         </section>
@@ -78,10 +78,56 @@
 	<section>
             <p>To save the IP tables type the following commands as shown: "sudo apt install iptables-persistent"; "sudo netfilter-persistent save"; "sudo netfilter-persistent reload".</p>
         </section>
-
 	<section>
              <img src="Images/Gateway 11.jpeg" alt="Gateway" width="750" />
             <p>Once the tables are saved type the following to review them "sudo iptables -L -v -n". That command will display all IP tables and rules which have been set</p>
+        </section>
+	<section>    
+            <p>The challenge that i faced during the set up of the Gateway was that due to unknown for me reason the Gateway was loosing the internet connection when the network card on which is at the moment enp0s3 was changed with enp0s9 network card. For some reason in my case i could have internet only through the first card.</p>
+        </section>
+	<section>    
+            <p>During the Module different things and theories have been explored to determine the issue and the steps taken to try and resolve it, such as clearing the IP Tables and setting them again, trying all other network cards, checking different configuration files, but nothing worked. I will keep exploring the issue to determine what could have be the reason of why this happened.</p>
+        </section>
+
+	<section>
+            <h3>Ubuntu Desktop</h3>
+            <p>The next content will show you how to set up a static IP address on Ubuntu Desktop. By following the steps shown on the pictures bellow you should be able to set up the address correctly so the desktop machine will have access on the Internet through the Gateway and also to communicate with the other machines that will be connected on the other Subnets.</p>
+        </section>
+	<section>
+             <img src="Images/Ubuntu 1.jpeg" alt="Ubuntu Desktop" width="750" />
+            <p>So the first step of setting a static IP on Ubuntu Desktop is to navigate to the Network settings which can be found on the top right corner of the screen. The difference here is that this machine have user interface and here we wont need to do the setting via command lines. Once you navigate to the network settings click on the icon which represents it. The pop up menu will appear and from there click on the "Wired Setting" option.</p>
+        </section>
+	<section>
+             <img src="Images/Ubuntu 2.jpeg" alt="Ubuntu Desktop" width="750" />
+            <p>Once you open the network settings our main focus will be on the wired connection. Click on the setting button which is on the right side of the On/Off button.</p>
+        </section>
+	<section>
+             <img src="Images/Ubuntu 3.jpeg" alt="Ubuntu Desktop" width="750" />
+            <p>Once the setting is open we will have to navigate to the IPv4 option and from there by default the IPv4 Method will be set on Automatic (DHCP). We will change that to Manual and under the Address section we will add the IP address which we want. In my case that is 192.168.33.2, the Netmask will appear automatically and if not add it by typing 255.255.255.0. The last step on the Address setting is to add the Gateway through which we want the machine to get internet access. The Gateway should be on the same IP range as the address we are setting up. In my case that is 192.168.33.1</p>
+        </section>
+	<section>    
+            <p>The next step here is to set the DNS. In my case I left it on Automatic and added the Google address which is 8.8.8.8. Once that is done click on the Apply button on the top right. That will apply the setting which we just did and will close the setting window. The only thing which left to be done is to reboot the network configuration. The easiest way to do it is to switch off the Wired setting by clicking on the On/Off button. Once off wait for few seconds and switch it back on. That will fully apply the changes of the IP Address.</p>
+        </section>
+	<section>
+             <img src="Images/Ubuntu 4.jpeg" alt="Ubuntu Desktop" width="750" />
+            <p>To make sure that everything here is working properly the next step will check if we get respond from the Gateway. To do so open the Command Terminal and type ping followed by the IP address of the gate way and hit Enter. If everything is set correct you should be able to get respond from the Gateway as it is shown on the picture.</p>
+        </section>
+	<section>
+             <img src="Images/Ubuntu 5.jpeg" alt="Ubuntu Desktop" width="750" />
+            <p>Now to test if you Desktop machine have access to internet through the Gateway you can ping the Google address by typing ping 8.8.8.8. If your Gateway have been set up correctly you should be able to ping the Google address without any issues.</p>
+        </section>
+	<section>
+             <img src="Images/Ubuntu 6.jpeg" alt="Ubuntu Desktop" width="750" />
+            <p>Lastly what you can do to confirm that your Desktop machine have internet is to open you browser and navigate to any website of your choice. If the website is opening without any issues that means you've set up everything correct.</p>
+        </section>
+	<section>
+            <p>During the Module i did not had any issues of setting up the static IP on the desktop machine. It was entertaining task and was easy to be done.</p>
+        </section>
+
+	<section>
+            <h3>Application Server Bitnami OpenCart</h3>
+            <p>In the following section i will show how i set up the Application server for the Sandboxed network. </p>
+	    <img src="Images/bitnami 1.jpeg" alt="Bitnami OpenCart" width="750" />
         </section>
 
     </main>
